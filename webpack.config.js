@@ -6,8 +6,16 @@ module.exports = {
     entry: './src/index.js',
     output: {
         filename: 'bundle.js',
-        //convert to absolute path
-        path: path.resolve(__dirname, './dist')
+        publicPath: path.resolve(__dirname, './dist')
     },
-    mode: 'none'
+    mode: 'none',
+    module: {
+        //import an image file
+        rules: [
+            {
+                test: /\.(png|jpg|jpeg)$/,
+                type: 'asset/resource'
+            }
+        ]
+    }
 }
