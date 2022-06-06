@@ -16,6 +16,34 @@ function helloWorld(){
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (helloWorld);  //ECMAScript Module
 
+/***/ }),
+/* 2 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _dog1_jpeg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3);
+
+
+function addImage(){
+    const img = document.createElement('img');
+    img.alt = "Dog";
+    img.src = _dog1_jpeg__WEBPACK_IMPORTED_MODULE_0__;
+
+    const body = document.querySelector('body');
+    body.appendChild(img);
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (addImage);
+
+/***/ }),
+/* 3 */
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "7c85879d6ecfc4981e6e.jpeg";
+
 /***/ })
 /******/ 	]);
 /************************************************************************/
@@ -72,15 +100,23 @@ function helloWorld(){
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/publicPath */
+/******/ 	(() => {
+/******/ 		__webpack_require__.p = "/Users/gichelle-alphaworks/Desktop/MEAN-Stack-Apprenticeship/personal practice/webpack5-practice/webpack5-practice/dist";
+/******/ 	})();
+/******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _hello_world_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var _add_image_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
+
 
 
 (0,_hello_world_js__WEBPACK_IMPORTED_MODULE_0__["default"])()
+;(0,_add_image_js__WEBPACK_IMPORTED_MODULE_1__["default"])()
 })();
 
 /******/ })()
