@@ -22,7 +22,11 @@ module.exports = {
                         maxSize:  3 * 1024 // 3 kilobytes
                     } // condition based on which webpage decides if it should use asset inline or as a resource
                 } // accepts a JS object as a value
-            }
+            },
+            {
+                test: /\.txt/,
+                type: 'asset/source'
+            }// will read the text file as a javascript string with those contents
         ]
     }
 }
