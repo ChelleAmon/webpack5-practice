@@ -16,7 +16,12 @@ module.exports = {
         rules: [
             {
                 test: /\.(png|jpg|jpeg)$/,
-                type: 'asset/resource'
+                type: 'asset',
+                parser: {
+                    dataUrlCondition: {
+                        maxSize:  3 * 1024 // 3 kilobytes
+                    } // condition based on which webpage decides if it should use asset inline or as a resource
+                } // accepts a JS object as a value
             }
         ]
     }
