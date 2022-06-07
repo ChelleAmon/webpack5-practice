@@ -67,6 +67,12 @@ module.exports = {
                 path.join(process.cwd(), 'build/**/*') // removes all files inside the build folder
             ]
         }),
-        new HtmlWebpackPlugin(),
+        new HtmlWebpackPlugin({ //pass additional options, e.g. specify a custom title. You can create your own html template while customizing the options from this plugin
+            title: "Hello World",
+            // filename: 'subfolder/custom_filename.html', // customize subfolder and its customized html name
+            meta: {
+                description: 'Some description'
+            }
+        }),
     ]
 }
