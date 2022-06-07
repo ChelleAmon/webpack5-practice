@@ -53,6 +53,12 @@ module.exports = {
                         plugins: [ '@babel/plugin-proposal-class-properties' ] // 
                     }
                 }
+            },
+            {
+                test: /\.hbs$/,
+                use: [
+                    'handlebars-loader'
+                ]
             }
         ]
     },
@@ -68,11 +74,10 @@ module.exports = {
             ]
         }),
         new HtmlWebpackPlugin({ //pass additional options, e.g. specify a custom title. You can create your own html template while customizing the options from this plugin
-            title: "Hello World",
+            title: "Hello World 2",
+            template: 'src/index.hbs',
             // filename: 'subfolder/custom_filename.html', // customize subfolder and its customized html name
-            meta: {
-                description: 'Some description'
-            }
+            description: 'I am testing with another description'
         }),
     ]
 }
