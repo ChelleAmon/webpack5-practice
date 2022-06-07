@@ -73,3 +73,9 @@ plugins: [
 ## More Webpack Plugins
 * [Webpack plugins](webpack.js.org/plugins/)
 
+## Production vs Development Builds
+* Production builds require a different setup than development builds
+* Production build: website should be as fast as possible, and our bundles should be as small as possible
+* Development build: we want to see an additional information inside our JS code
+
+
