@@ -52,3 +52,20 @@ plugins: [
 ## Generating HTML Files Automatically During Webpack Build Process
 * Plugin: HtmlWebpackPlugin => A special plugin that can create the whole HTML for us
 
+## Creating your own HTML files
+
+**Template Options**
+* pug
+* ejs
+* underscore
+* handlebars
+* html-loaders
+* ...
+
+**Handlebars**
+[Handlebars](https://handlebarsjs.com/)
+
+* template engine for JS that separates from business logic to presentation
+* file format: index.hbs
+* 
+
