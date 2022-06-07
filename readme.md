@@ -39,3 +39,12 @@ plugins: [
     * webpack.config.js => output => filename: 'bundle.[contenthash].js' (MD5 hash)
 
 
+## How to clean dist folder before generating new bundles
+* Plugin: __CleanWebpackPlugin__
+* This plugin will clean the outputPath folder everytime you generate a new bundle
+* simply remove all files from the dist folder
+* You need to provide some options when instantiating the plugin as well if you want the plugin to clean multiple folders 
+* Options: 
+    * cleanOnceBeforeBuildPatterns: => array object, removes old files before webpack generates the new files
+
+
