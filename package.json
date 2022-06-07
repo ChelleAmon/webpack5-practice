@@ -19,6 +19,10 @@
   },
   "homepage": "https://github.com/ChelleAmon/webpack5-practice#readme",
   "devDependencies": {
+    "@babel/core": "^7.18.2",
+    "@babel/plugin-proposal-class-properties": "^7.17.12",
+    "@babel/preset-env": "^7.18.2",
+    "babel-loader": "^8.2.5",
     "css-loader": "^6.7.1",
     "sass": "^1.52.2",
     "sass-loader": "^13.0.0",

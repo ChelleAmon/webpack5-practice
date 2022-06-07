@@ -38,6 +38,17 @@ module.exports = {
                 use: [
                     'style-loader', 'css-loader', 'sass-loader'
                 ]
+            },
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: [ '@babel/env' ], // converts ECMASCRIPT to its older version
+                        plugins: [ '@babel/plugin-proposal-class-properties' ] // 
+                    }
+                }
             }
         ]
     }
