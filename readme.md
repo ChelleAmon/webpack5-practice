@@ -30,5 +30,12 @@ plugins: [
 * it will help decrease network traffic
 * On this project, TerserPlugin will be used to minify the JS bundles (Webpack v5 comes with the latest terser-webpack-plugin out of the box, no need to install them)
 
+## Browser Caching
+* Each time the user reloads the page, their browser downloads all those files from the internet, it might be an issue for some user who might access the page on their mobile and has slow internet connection
+* Solution: Broswe caching
+* If the file did not change and user reload the page, browser will save the files into a specific place (cache)
+* What if the JS file has changed? User might not get the updated version of that JS file. Solution: change the name of the JS file and webpack does it automatically
+
+    * webpack.config.js => output => filename: 'bundle.[contenthash].js' (MD5 hash)
 
 
