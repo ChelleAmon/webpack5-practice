@@ -54,6 +54,8 @@ plugins: [
 
 ## Creating your own HTML files
 
+**[HtmlWebpackPlugin](https://github.com/jantimon/html-webpack-plugin)**
+
 **Template Options**
 * pug
 * ejs
@@ -63,9 +65,11 @@ plugins: [
 * ...
 
 **Handlebars**
-[Handlebars](https://handlebarsjs.com/)
+* [Handlebars](https://handlebarsjs.com/)
 
 * template engine for JS that separates from business logic to presentation
 * file format: index.hbs
-* 
+
+## More Webpack Plugins
+* [Webpack plugins](webpack.js.org/plugins/)
 
