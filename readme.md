@@ -78,4 +78,18 @@ plugins: [
 * Production build: website should be as fast as possible, and our bundles should be as small as possible
 * Development build: we want to see an additional information inside our JS code
 
+### 'Mode' Option
+* an option available in webpack configuration
+* it enables certain built-in optimizations for production and development builds
+* became available from webpack 4
+* 3 values: 'none', 'development', 'production'
 
+    * **Production**
+      * enables quite a long list of different plugins including TerserPlugin
+      * [Click here to check the full list of plugins for production mode](https://webpack.js.org/configuration/mode)
+      * When it throws an error, it reads the error from the bundle.js, and when you inspect it from console, the code is not readable and it does not go to the specific line
+  
+    * **Development**
+      * It throws error from index.js, which is a readable verion of the source file and it goes to the specific line
+      * development mode uses source map by default 
+    

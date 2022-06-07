@@ -14,7 +14,7 @@ module.exports = {
         publicPath: ''
         // publicPath: 'http://some-cdn.com'
     },
-    mode: 'none',
+    mode: 'development', // 
     module: {
         //import an image file
         rules: [
