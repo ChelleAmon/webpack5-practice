@@ -43,8 +43,12 @@ plugins: [
 * Plugin: __CleanWebpackPlugin__
 * This plugin will clean the outputPath folder everytime you generate a new bundle
 * simply remove all files from the dist folder
-* You need to provide some options when instantiating the plugin as well if you want the plugin to clean multiple folders 
+* You need to provide some options when instantiating the plugin as well if you want the plugin to clean multiple folders
+   
 * Options: 
     * cleanOnceBeforeBuildPatterns: => array object, removes old files before webpack generates the new files
 
+
+## Generating HTML Files Automatically During Webpack Build Process
+* Plugin: HtmlWebpackPlugin => A special plugin that can create the whole HTML for us
 
