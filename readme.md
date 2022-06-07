@@ -19,8 +19,16 @@
 * Example: uglifyJSPLugin - takes the bundle.js and minimizes the contents to decrease the bundle size
 * you can define global constants across the whole application
 * minimify resulting bundle to decrease load time
+* Webpack plugin is a development dependency because we only need it during build process. It is not needed during production depenedeces 
 
 plugins: [
     new PluginName()
 ]
+
+**Why Minify**
+* if we make the JS file smaller, it will load faster
+* it will help decrease network traffic
+* On this project, TerserPlugin will be used to minify the JS bundles (Webpack v5 comes with the latest terser-webpack-plugin out of the box, no need to install them)
+
+
 
