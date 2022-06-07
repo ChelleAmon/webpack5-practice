@@ -26,7 +26,13 @@ module.exports = {
             {
                 test: /\.txt/,
                 type: 'asset/source'
-            }// will read the text file as a javascript string with those contents
+            },// will read the text file as a javascript string with those contents
+            {
+                test: /\.css$/,
+                use: [
+                    'style-loader', 'css-loader'
+                ]
+            }
         ]
     }
 }
