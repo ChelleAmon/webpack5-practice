@@ -1,13 +1,10 @@
 import HelloWorldButton from './components/hello-world-button/hello-world-button.js';
 import Heading from './components/heading/heading.js';
+import _ from 'lodash';
 
 
 const heading = new Heading();
-heading.render();
-
-
-const heading2 = new Heading();
-heading2.render();
+heading.render(_.upperFirst('hello world')); //lodash => _.upperFirst(), making the first letter in uppercase. not the best solution
 
 const helloWorldButton = new HelloWorldButton()
 helloWorldButton.render()
