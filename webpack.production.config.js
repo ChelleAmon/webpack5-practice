@@ -17,7 +17,8 @@ module.exports = {
     mode: 'production', 
     optimization: {
         splitChunks: {
-            chunks: 'all' // choose which chunks you want to optimize
+            chunks: 'all', // choose which chunks you want to optimize
+            minSize: 3000,
         }
     },
     module: {
