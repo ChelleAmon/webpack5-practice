@@ -4,9 +4,12 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: './src/index.js',
+    entry: {
+        'hello-world': './src/hello-world.js',
+        'dog': './src/dog.js'
+    },
     output: {
-        filename: 'bundle.[contenthash].js',
+        filename: '[name].[contenthash].js', //[id]- hash version of the filename from entry object; [name]-readable
         path: path.resolve(__dirname, './dist'), //output.path folder
         publicPath: ''
         // publicPath: 'http://some-cdn.com'
@@ -61,7 +64,7 @@ module.exports = {
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: 'style.[contenthash].css',
+            filename: '[name].[contenthash].css',
         }),
         new CleanWebpackPlugin({
             cleanOnceBeforeBuildPatterns: [ //removes old files before Webpack generates the new files
