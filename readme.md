@@ -105,4 +105,5 @@ plugins: [
   * extracting dependencies while code splitting
   * add optimization as JS object under mode option. Specify which chunks you want to optimize. 
   * This option will help building the dist files without including the dependencies which will increase the JS size significantly if  not optimized.
+  * In the given example, when we run the npm script for production, it creates a separate bundle for lodash library which will be cached, so if users will reload your page, it will only download your code, and not including the cached lodash library bundle
     
