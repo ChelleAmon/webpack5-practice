@@ -96,4 +96,7 @@ plugins: [
 
 ## Multiple Page Application
 * how to split code into multiple bundles
+
+* **Chunks**
+  * special HtmlWebpackPlugin option where we can specify which bundles we need to include where
     
