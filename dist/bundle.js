@@ -49,7 +49,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _components_hello_world_button_hello_world_button_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/hello-world-button/hello-world-button.js */ \"./src/components/hello-world-button/hello-world-button.js\");\n/* harmony import */ var _components_heading_heading_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/heading/heading.js */ \"./src/components/heading/heading.js\");\n\n\nvar heading = new _components_heading_heading_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"]();\nheading.render();\nvar helloWorldButton = new _components_hello_world_button_hello_world_button_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"]();\nhelloWorldButton.render(); // a code snippet that will check NODE_ENV variable if mode option from webpack.config.js is set to 'PRODUCTION' mode\n\nif (false) {} else if (true) {\n  console.log('Development mode');\n} // Production and Development Mode handle errors differently\n//intentional error\n\n\nhelloWorldButton.methodThatDoesNotExist();\n\n//# sourceURL=webpack://webpack5-practice/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _components_hello_world_button_hello_world_button_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/hello-world-button/hello-world-button.js */ \"./src/components/hello-world-button/hello-world-button.js\");\n/* harmony import */ var _components_heading_heading_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/heading/heading.js */ \"./src/components/heading/heading.js\");\n\n\nvar heading = new _components_heading_heading_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"]();\nheading.render();\nvar heading2 = new _components_heading_heading_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"]();\nheading2.render();\nvar helloWorldButton = new _components_hello_world_button_hello_world_button_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"]();\nhelloWorldButton.render(); // a code snippet that will check NODE_ENV variable if mode option from webpack.config.js is set to 'PRODUCTION' mode\n\nif (false) {} else if (true) {\n  console.log('Development mode');\n} // Production and Development Mode handle errors differently\n//intentional error\n\n\nhelloWorldButton.methodThatDoesNotExist();\n\n//# sourceURL=webpack://webpack5-practice/./src/index.js?");
 
 /***/ }),
 
@@ -496,7 +496,7 @@ eval("var logLevel = \"info\";\n\nfunction dummy() {}\n\nfunction shouldLog(leve
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("36c0b13da85107445297")
+/******/ 		__webpack_require__.h = () => ("39df7e1b10118d8c4f26")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
