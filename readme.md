@@ -106,4 +106,11 @@ plugins: [
   * add optimization as JS object under mode option. Specify which chunks you want to optimize. 
   * This option will help building the dist files without including the dependencies which will increase the JS size significantly if  not optimized.
   * In the given example, when we run the npm script for production, it creates a separate bundle for lodash library which will be cached, so if users will reload your page, it will only download your code, and not including the cached lodash library bundle
+
+* Setting Custom Options for Code Splitting
+  * default webpack extracts common dependencies only when they exceed 30 kilobytes before minification
+  * React library is only less than 30 kbs
+
+  * Customize option: 
+    * optimization : {splitChunks : { chunks: 'all', **minSize: 3000**}}, 3000 is equivalent to 3 kb
     
