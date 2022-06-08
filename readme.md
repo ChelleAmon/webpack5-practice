@@ -113,4 +113,10 @@ plugins: [
 
   * Customize option: 
     * optimization : {splitChunks : { chunks: 'all', **minSize: 3000**}}, 3000 is equivalent to 3 kb
+
+* **How to Setup Development Configuration for Multiple Page Application**
+  * Change entry point object from webpack.dev.config.js
+  * Add another HtmlWebpackPlugin and change the names. This is to create two html pages
+  * No need to add chunks as it is not needed in development build
+
     
