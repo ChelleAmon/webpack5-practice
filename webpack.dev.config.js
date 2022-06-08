@@ -11,6 +11,16 @@ module.exports = {
         // publicPath: 'http://some-cdn.com'
     },
     mode: 'development', 
+    devServer: {
+        port: 3501,
+        static: {
+            directory: path.resolve(__dirname, './dist'), //tell where dev-server should run 
+        },
+        devMiddleware: {
+            index: 'index.html',
+            writeToDisk: true // webpack saves the generated file to disk 
+        }
+    },
     module: {
         rules: [
             {
@@ -29,13 +39,13 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: [
-                    'style.loader', 'css-loader'
+                    'style-loader', 'css-loader'
                 ]
             },
             {
                 test: /\.scss$/,
                 use: [
-                    'style.loader', 'css-loader', 'sass-loader'
+                    'style-loader', 'css-loader', 'sass-loader'
                 ]
             },
             {
