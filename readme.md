@@ -100,4 +100,9 @@ plugins: [
 * **Chunks**
   * special HtmlWebpackPlugin option where we can specify which bundles we need to include where
   * chunk names are specified in the entry point object
+
+* **Optimization**
+  * extracting dependencies while code splitting
+  * add optimization as JS object under mode option. Specify which chunks you want to optimize. 
+  * This option will help building the dist files without including the dependencies which will increase the JS size significantly if  not optimized.
     
