@@ -14,7 +14,12 @@ module.exports = {
         publicPath: ''
         // publicPath: 'http://some-cdn.com'
     },
-    mode: 'production', // 
+    mode: 'production', 
+    optimization: {
+        splitChunks: {
+            chunks: 'all' // choose which chunks you want to optimize
+        }
+    },
     module: {
         //import an image file
         rules: [
