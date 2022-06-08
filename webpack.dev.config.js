@@ -3,9 +3,12 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: './src/index.js',
+    entry: {
+        'hello-world': './src/hello-world.js',
+        'dog': './src/dog.js'
+    },
     output: {
-        filename: 'bundle.js',
+        filename: '[name].bundle.js', //[name], a placeholder
         path: path.resolve(__dirname, './dist'), //output.path folder
         publicPath: ''
         // publicPath: 'http://some-cdn.com'
@@ -75,10 +78,20 @@ module.exports = {
             ]
         }),
         new HtmlWebpackPlugin({ //pass additional options, e.g. specify a custom title. You can create your own html template while customizing the options from this plugin
+            filename: 'hello-world.html',
+            chunks: ['hello-world'],
             title: "Hello World 2",
-            template: 'src/index.hbs',
+            template: 'src/page-template.hbs',
             // filename: 'subfolder/custom_filename.html', // customize subfolder and its customized html name
-            description: 'I am testing with another description'
+            description: 'Hello World'
+        }),
+        new HtmlWebpackPlugin({ //pass additional options, e.g. specify a custom title. You can create your own html template while customizing the options from this plugin
+            filename: 'dog.html',
+            chunks: ['dog'],
+            title: "Dog",
+            template: 'src/page-template.hbs',
+            // filename: 'subfolder/custom_filename.html', // customize subfolder and its customized html name
+            description: 'Dog'
         }),
     ],
     resolve: {
