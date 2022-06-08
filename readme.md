@@ -92,4 +92,8 @@ plugins: [
     * **Development**
       * It throws error from index.js, which is a readable verion of the source file and it goes to the specific line
       * development mode uses source map by default 
+
+
+## Multiple Page Application
+* how to split code into multiple bundles
     
