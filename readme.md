@@ -99,4 +99,5 @@ plugins: [
 
 * **Chunks**
   * special HtmlWebpackPlugin option where we can specify which bundles we need to include where
+  * chunk names are specified in the entry point object
     
