@@ -1,4 +1,5 @@
 # WEBPACK 5
+Github repository: [Udemy Course](https://github.com/vp-online-courses/webpack-tutorial)
 
 ## Asset Modules
 * It imports images, fonts and txt files
