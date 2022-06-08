@@ -73,10 +73,22 @@ module.exports = {
             ]
         }),
         new HtmlWebpackPlugin({ //pass additional options, e.g. specify a custom title. You can create your own html template while customizing the options from this plugin
+            filename: 'hello-world.html',
+            chunks : ['hello-world'], //array object
             title: "Hello World 2",
-            template: 'src/index.hbs',
+            template: 'src/page-template.hbs',
             // filename: 'subfolder/custom_filename.html', // customize subfolder and its customized html name
-            description: 'I am testing with another description'
+            description: 'Hello World',
+            minify: false
+        }),
+        new HtmlWebpackPlugin({ //pass additional options, e.g. specify a custom title. You can create your own html template while customizing the options from this plugin
+            filename: 'dog.html',
+            chunks : ['dog'], //array object
+            title: "Dog",
+            template: 'src/page-template.hbs',
+            // filename: 'subfolder/custom_filename.html', // customize subfolder and its customized html name
+            description: 'Dog',
+            minify: false
         }),
     ]
 }
