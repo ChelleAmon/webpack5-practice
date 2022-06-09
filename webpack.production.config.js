@@ -11,7 +11,7 @@ module.exports = {
     output: {
         filename: '[name].[contenthash].js', //[id]- hash version of the filename from entry object; [name]-readable
         path: path.resolve(__dirname, './dist'), //output.path folder
-        publicPath: ''
+        publicPath: '/static'
         // publicPath: 'http://some-cdn.com'
     },
     mode: 'production', 
