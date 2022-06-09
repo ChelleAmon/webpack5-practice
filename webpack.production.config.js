@@ -1,20 +1,26 @@
-//Basic webpack configuration
-
 const path = require('path');
-const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: './src/index.js',
+    entry: {
+        'hello-world': './src/hello-world.js',
+        'dog': './src/dog.js'
+    },
     output: {
-        filename: 'bundle.[contenthash].js',
+        filename: '[name].[contenthash].js', //[id]- hash version of the filename from entry object; [name]-readable
         path: path.resolve(__dirname, './dist'), //output.path folder
         publicPath: ''
         // publicPath: 'http://some-cdn.com'
     },
-    mode: 'none',
+    mode: 'production', 
+    optimization: {
+        splitChunks: {
+            chunks: 'all', // choose which chunks you want to optimize
+            minSize: 3000,
+        }
+    },
     module: {
         //import an image file
         rules: [
@@ -63,9 +69,8 @@ module.exports = {
         ]
     },
     plugins: [
-        new TerserPlugin(),
         new MiniCssExtractPlugin({
-            filename: 'style.[contenthash].css',
+            filename: '[name].[contenthash].css',
         }),
         new CleanWebpackPlugin({
             cleanOnceBeforeBuildPatterns: [ //removes old files before Webpack generates the new files
@@ -74,10 +79,22 @@ module.exports = {
             ]
         }),
         new HtmlWebpackPlugin({ //pass additional options, e.g. specify a custom title. You can create your own html template while customizing the options from this plugin
+            filename: 'hello-world.html',
+            chunks : ['hello-world'], //array object
             title: "Hello World 2",
-            template: 'src/index.hbs',
+            template: 'src/page-template.hbs',
             // filename: 'subfolder/custom_filename.html', // customize subfolder and its customized html name
-            description: 'I am testing with another description'
+            description: 'Hello World',
+            minify: false
+        }),
+        new HtmlWebpackPlugin({ //pass additional options, e.g. specify a custom title. You can create your own html template while customizing the options from this plugin
+            filename: 'dog.html',
+            chunks : ['dog'], //array object
+            title: "Dog",
+            template: 'src/page-template.hbs',
+            // filename: 'subfolder/custom_filename.html', // customize subfolder and its customized html name
+            description: 'Dog',
+            minify: false
         }),
     ]
 }
