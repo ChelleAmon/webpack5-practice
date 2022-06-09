@@ -1,7 +1,5 @@
 import HelloWorldButton from './components/hello-world-button/hello-world-button.js';
 import Heading from './components/heading/heading.js';
-import React from 'react';
-
 
 const heading = new Heading();
 heading.render('hello world'); //lodash => _.upperFirst(), making the first letter in uppercase. not the best solution
@@ -19,5 +17,3 @@ helloWorldButton.render()
 // Production and Development Mode handle errors differently
 
 
-//intentional error
-helloWorldButton.methodThatDoesNotExist();
