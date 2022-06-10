@@ -13,6 +13,6 @@ app.get('/', (req,res) => {
     res.send(contentFromHtmlFile)
 });
 
-app.listen(3501, () => {
-    console.log('Application is running on http://localhost:3501')
+app.listen(9001, () => {
+    console.log('Application is running on http://localhost:9001')
 })
