@@ -121,3 +121,9 @@ plugins: [
   * No need to add chunks as it is not needed in development build
 
     
+## Module Federation
+
+* Newly introduced in webpack 5
+* Allows one application to dynamically load modules from another application at runtime.
+* It allows to create standalone applications that are independent from each other and has their own dependencies.
+  

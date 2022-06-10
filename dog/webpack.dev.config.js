@@ -1,6 +1,7 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { ModuleFederationPlugin } = require('webpack').container;
 
 module.exports = {
     entry: ' ./src/dog.js',
@@ -71,5 +72,11 @@ module.exports = {
             // filename: 'subfolder/custom_filename.html', // customize subfolder and its customized html name
             description: 'Dog'
         }),
+        new ModuleFederationPlugin({
+            name: "DogApp",
+            remotes: {
+                HelloWorldApp: 'HelloWorldApp@http://localhost:9001/remoteEntry.js'
+            }
+        })
     ],
 }
