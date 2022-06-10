@@ -10,18 +10,17 @@ module.exports = {
     output: {
         filename: '[name].[contenthash].js', //[id]- hash version of the filename from entry object; [name]-readable
         path: path.resolve(__dirname, './dist'), //output.path folder
-        publicPath: ''
+        publicPath: '/static/'
         // publicPath: 'http://some-cdn.com'
     },
     mode: 'production', 
     optimization: {
         splitChunks: {
             chunks: 'all', // choose which chunks you want to optimize
-            minSize: 3000,
+            minSize: 10000,
         }
     },
     module: {
-        //import an image file
         rules: [
             {
                 test: /\.(png|jpg|jpeg)$/,
@@ -29,8 +28,8 @@ module.exports = {
                 parser: {
                     dataUrlCondition: {
                         maxSize:  3 * 1024 // 3 kilobytes
-                    } // condition based on which webpage decides if it should use asset inline or as a resource
-                } // accepts a JS object as a value
+                    } 
+                } 
             },
             {
                 test: /\.scss$/,
@@ -44,7 +43,7 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: [ '@babel/env' ], // converts ECMASCRIPT to its older version
+                        presets: [ '@babel/env' ], 
                     }
                 }
             },
@@ -60,12 +59,7 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: '[name].[contenthash].css',
         }),
-        new CleanWebpackPlugin({
-            cleanOnceBeforeBuildPatterns: [ //removes old files before Webpack generates the new files
-                '**/*', //means remove all the files together with subdirectories inside the output.path.folder
-                path.join(process.cwd(), 'build/**/*') // removes all files inside the build folder
-            ]
-        }),
+        new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({ //pass additional options, e.g. specify a custom title. You can create your own html template while customizing the options from this plugin
             filename: 'dog.html',
             title: "Dog",

@@ -8,12 +8,12 @@ module.exports = {
     output: {
         filename: '[name].bundle.js', //[name], a placeholder
         path: path.resolve(__dirname, './dist'), //output.path folder
-        publicPath: 'http://localhost:3501'
+        publicPath: 'http://localhost:9001/'
         // publicPath: 'http://some-cdn.com'
     },
     mode: 'development', 
     devServer: {
-        port: 3501,
+        port: 9001,
         static: {
             directory: path.resolve(__dirname, './dist'), //tell where dev-server should run 
         },
@@ -50,17 +50,11 @@ module.exports = {
         ]
     },
     plugins: [
-        new CleanWebpackPlugin({
-            cleanOnceBeforeBuildPatterns: [ //removes old files before Webpack generates the new files
-                '**/*', //means remove all the files together with subdirectories inside the output.path.folder
-                path.join(process.cwd(), 'build/**/*') // removes all files inside the build folder
-            ]
-        }),
+        new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({ //pass additional options, e.g. specify a custom title. You can create your own html template while customizing the options from this plugin
             filename: 'hello-world.html',
             title: "Hello World 2",
             template: 'src/page-template.hbs',
-            // filename: 'subfolder/custom_filename.html', // customize subfolder and its customized html name
             description: 'Hello World'
         }),
         new ModuleFederationPlugin({

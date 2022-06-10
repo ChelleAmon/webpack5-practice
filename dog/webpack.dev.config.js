@@ -4,22 +4,22 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { ModuleFederationPlugin } = require('webpack').container;
 
 module.exports = {
-    entry: ' ./src/dog.js',
+    entry: './src/dog.js',
     output: {
-        filename: '[name].bundle.js', //[name], a placeholder
-        path: path.resolve(__dirname, './dist'), //output.path folder
+        filename: '[name].bundle.js',
+        path: path.resolve(__dirname, './dist'), 
         publicPath: ''
         // publicPath: 'http://some-cdn.com'
     },
     mode: 'development', 
     devServer: {
-        port: 3502,
+        port: 9002,
         static: {
-            directory: path.resolve(__dirname, './dist'), //tell where dev-server should run 
+            directory: path.resolve(__dirname, './dist'),
         },
         devMiddleware: {
             index: 'dog.html',
-            writeToDisk: true // webpack saves the generated file to disk 
+            writeToDisk: true 
         }
     },
     module: {
@@ -45,8 +45,7 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: [ '@babel/env' ], // converts ECMASCRIPT to its older version
-                        plugins: [ '@babel/plugin-proposal-class-properties' ] // 
+                        presets: [ '@babel/env' ]
                     }
                 }
             },
@@ -59,13 +58,8 @@ module.exports = {
         ]
     },
     plugins: [
-        new CleanWebpackPlugin({
-            cleanOnceBeforeBuildPatterns: [ //removes old files before Webpack generates the new files
-                '**/*', //means remove all the files together with subdirectories inside the output.path.folder
-                path.join(process.cwd(), 'build/**/*') // removes all files inside the build folder
-            ]
-        }),
-        new HtmlWebpackPlugin({ //pass additional options, e.g. specify a custom title. You can create your own html template while customizing the options from this plugin
+        new CleanWebpackPlugin(),
+        new HtmlWebpackPlugin({ 
             filename: 'dog.html',
             title: "Dog",
             template: 'src/page-template.hbs',

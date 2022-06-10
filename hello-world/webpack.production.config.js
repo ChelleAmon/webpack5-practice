@@ -10,14 +10,14 @@ module.exports = {
     output: {
         filename: '[name].[contenthash].js', //[id]- hash version of the filename from entry object; [name]-readable
         path: path.resolve(__dirname, './dist'), //output.path folder
-        publicPath: 'http://localhost:3501'
+        publicPath: 'http://localhost:9001/'
         // publicPath: 'http://some-cdn.com'
     },
     mode: 'production', 
     optimization: {
         splitChunks: {
             chunks: 'all', // choose which chunks you want to optimize
-            minSize: 3000,
+            minSize: 10000,
         }
     },
     module: {
@@ -52,17 +52,11 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: '[name].[contenthash].css',
         }),
-        new CleanWebpackPlugin({
-            cleanOnceBeforeBuildPatterns: [ //removes old files before Webpack generates the new files
-                '**/*', //means remove all the files together with subdirectories inside the output.path.folder
-                path.join(process.cwd(), 'build/**/*') // removes all files inside the build folder
-            ]
-        }),
+        new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({ //pass additional options, e.g. specify a custom title. You can create your own html template while customizing the options from this plugin
             filename: 'hello-world.html',
             title: "Hello World 2",
             template: 'src/page-template.hbs',
-            // filename: 'subfolder/custom_filename.html', // customize subfolder and its customized html name
             description: 'Hello World',
             minify: false
         }),
