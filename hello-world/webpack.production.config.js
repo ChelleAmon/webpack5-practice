@@ -2,13 +2,15 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { ModuleFederationPlugin } = require('webpack').container;
+
 
 module.exports = {
     entry: './src/hello-world.js',
     output: {
         filename: '[name].[contenthash].js', //[id]- hash version of the filename from entry object; [name]-readable
         path: path.resolve(__dirname, './dist'), //output.path folder
-        publicPath: ''
+        publicPath: 'http://localhost:3501'
         // publicPath: 'http://some-cdn.com'
     },
     mode: 'production', 
@@ -63,6 +65,13 @@ module.exports = {
             // filename: 'subfolder/custom_filename.html', // customize subfolder and its customized html name
             description: 'Hello World',
             minify: false
+        }),
+        new ModuleFederationPlugin({
+            name: 'HelloWorldApp',
+            filename: 'remoteEntry.js',
+            exposes: {
+                './HelloWorldButton': './src/components/hello-world-button/hello-world-button.js'
+            }
         })
     ]
 }
