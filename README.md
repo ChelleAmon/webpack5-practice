@@ -128,4 +128,8 @@ plugins: [
 * It allows to create standalone applications that are independent from each other and has their own dependencies.
 * Module Federation, when making changes to a component that is rendered on another application, loads the component dynamically during runtime. It will always take the latest version of the component
   
+
+## Micro Frontends
+
+* Useful when each and every page is developed by a different team
   
