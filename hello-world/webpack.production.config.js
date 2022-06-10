@@ -64,7 +64,8 @@ module.exports = {
             name: 'HelloWorldApp',
             filename: 'remoteEntry.js',
             exposes: {
-                './HelloWorldButton': './src/components/hello-world-button/hello-world-button.js'
+                './HelloWorldButton': './src/components/hello-world-button/hello-world-button.js',
+                './helloWorldPage': './src/components/hello-world-page/hello-world-page.js'
             }
         })
     ]
