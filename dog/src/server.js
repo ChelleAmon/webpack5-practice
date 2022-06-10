@@ -5,7 +5,7 @@ const fs = require('fs');
 
 const clientPath = path.resolve(__dirname, '../dist')
 
-app.use(express.static(clientPath))
+app.use('/static', express.static(clientPath))
 
 app.get('/', (req,res) => {
     const pathToHtmlFile = path.resolve(__dirname, '../dist/dog.html');
