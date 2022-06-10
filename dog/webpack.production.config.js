@@ -10,7 +10,7 @@ module.exports = {
     output: {
         filename: '[name].[contenthash].js', //[id]- hash version of the filename from entry object; [name]-readable
         path: path.resolve(__dirname, './dist'), //output.path folder
-        publicPath: '/static/'
+        publicPath: 'http://localhost:9002/'
         // publicPath: 'http://some-cdn.com'
     },
     mode: 'production', 
@@ -69,8 +69,9 @@ module.exports = {
         }),
         new ModuleFederationPlugin({
             name: "DogApp",
-            remotes: {
-                HelloWorldApp: 'HelloWorldApp@http://localhost:9001/remoteEntry.js'
+            filename: 'remoteEntry.js',
+            exposes: {
+                './DogPage': './src/components/dog-page/dog-page.js'
             }
         })
     ]
