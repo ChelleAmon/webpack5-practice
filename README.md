@@ -169,6 +169,7 @@ plugins: [
 ## ESLint
 * Open Source project that provides a pluggable lint
 * Highly configurable
+* Static analysis of code
   
 ### Linter
   * Refers to tools that analyze the source code to flag programming errors, bugs, stylistic errors and suspicious constructs
