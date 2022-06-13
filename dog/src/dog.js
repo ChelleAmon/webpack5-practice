@@ -1,9 +1,4 @@
-import Heading from "./components/heading/heading.js";
-import DogImage from './components/dog-image/dog-image.js';
+import DogPage from './components/dog-page/dog-page.js';
 
-const heading = new Heading();
-heading.render('Dog');
-
-const dogImage = new DogImage();
-dogImage.render()
-
+const dogPage = new DogPage();
+dogPage.render();
