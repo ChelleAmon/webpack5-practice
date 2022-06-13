@@ -4,35 +4,26 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { ModuleFederationPlugin } = require('webpack').container;
 
 module.exports = {
-    entry: './src/dog.js',
+    entry: './src/image-caption.js',
     output: {
-        filename: '[name].bundle.js',
-        path: path.resolve(__dirname, './dist'), 
-        publicPath: 'http://localhost:9002/'
+        filename: '[name].bundle.js', //[name], a placeholder
+        path: path.resolve(__dirname, './dist'), //output.path folder
+        publicPath: 'http://localhost:9003/'
         // publicPath: 'http://some-cdn.com'
     },
     mode: 'development', 
     devServer: {
-        port: 9002,
+        port: 9003,
         static: {
-            directory: path.resolve(__dirname, './dist'),
+            directory: path.resolve(__dirname, './dist'), //tell where dev-server should run 
         },
         devMiddleware: {
-            index: 'dog.html',
-            writeToDisk: true 
+            index: 'image-caption.html',
+            writeToDisk: true // webpack saves the generated file to disk 
         }
     },
     module: {
         rules: [
-            {
-                test: /\.(png|jpg|jpeg)$/,
-                type: 'asset',
-                parser: {
-                    dataUrlCondition: {
-                        maxSize:  3 * 1024 // 3 kilobytes
-                    } 
-                } 
-            },
             {
                 test: /\.scss$/,
                 use: [
@@ -45,7 +36,7 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: [ '@babel/env' ]
+                        presets: [ '@babel/env' ], // converts ECMASCRIPT to its older version
                     }
                 }
             },
@@ -59,22 +50,17 @@ module.exports = {
     },
     plugins: [
         new CleanWebpackPlugin(),
-        new HtmlWebpackPlugin({ 
-            filename: 'dog.html',
-            title: "Dog",
+        new HtmlWebpackPlugin({ //pass additional options, e.g. specify a custom title. You can create your own html template while customizing the options from this plugin
+            filename: 'image-caption.html',
+            title: "Image Caption",
             template: 'src/page-template.hbs',
-            // filename: 'subfolder/custom_filename.html', // customize subfolder and its customized html name
-            description: 'Dog'
+            description: 'Image Caption'
         }),
         new ModuleFederationPlugin({
-            name: "DogApp",
+            name: 'ImageCaptionApp',
             filename: 'remoteEntry.js',
-    //Dog App serves as both a hosted application for Image Caption and used as a federal module in dashboard
             exposes: {
-                './DogPage': './src/components/dog-page/dog-page.js'
-            }, 
-            remotes: { 
-                ImageCaptionApp: 'ImageCaptionApp@http://localhost:9003/remoteEntry.js'
+                './ImageCaption': './src/components/image-caption/image-caption.js',
             }
         })
     ],

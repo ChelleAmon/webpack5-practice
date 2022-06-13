@@ -6,11 +6,11 @@ const { ModuleFederationPlugin } = require('webpack').container;
 
 
 module.exports = {
-    entry: './src/dog.js',
+    entry: './src/image-caption.js',
     output: {
         filename: '[name].[contenthash].js', //[id]- hash version of the filename from entry object; [name]-readable
         path: path.resolve(__dirname, './dist'), //output.path folder
-        publicPath: 'http://localhost:9002/'
+        publicPath: 'http://localhost:9003/'
         // publicPath: 'http://some-cdn.com'
     },
     mode: 'production', 
@@ -21,16 +21,8 @@ module.exports = {
         }
     },
     module: {
+        //import an image file
         rules: [
-            {
-                test: /\.(png|jpg|jpeg)$/,
-                type: 'asset',
-                parser: {
-                    dataUrlCondition: {
-                        maxSize:  3 * 1024 // 3 kilobytes
-                    } 
-                } 
-            },
             {
                 test: /\.scss$/,
                 use: [
@@ -43,7 +35,7 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: [ '@babel/env' ], 
+                        presets: [ '@babel/env' ], // converts ECMASCRIPT to its older version
                     }
                 }
             },
@@ -61,20 +53,17 @@ module.exports = {
         }),
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({ //pass additional options, e.g. specify a custom title. You can create your own html template while customizing the options from this plugin
-            filename: 'dog.html',
-            title: "Dog",
+            filename: 'image-caption.html',
+            title: "Image Caption 2",
             template: 'src/page-template.hbs',
-            description: 'Dog',
+            description: 'Image Caption',
             minify: false
         }),
         new ModuleFederationPlugin({
-            name: "DogApp",
+            name: 'ImageCaptionApp',
             filename: 'remoteEntry.js',
             exposes: {
-                './DogPage': './src/components/dog-page/dog-page.js'
-            },
-            remotes: { 
-                ImageCaptionApp: 'ImageCaptionApp@http://localhost:9003/remoteEntry.js'
+                './ImageCaption': './src/components/image-caption/image-caption.js',
             }
         })
     ]

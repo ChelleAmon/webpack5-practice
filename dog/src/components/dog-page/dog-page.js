@@ -8,7 +8,15 @@ class DogPage {
         heading.render('Dog');
         
         const dogImage = new DogImage();
-        dogImage.render()        
+        dogImage.render();
+        
+        import('ImageCaptionApp/ImageCaption') // dynamic import
+            .then(ImageCaptionModule => {
+                const ImageCaption = ImageCaptionModule.default;
+                const imageCaption = new ImageCaption();
+                imageCaption.render('The Dog is beautiful!')            
+            }
+        )
     }
 }
 
