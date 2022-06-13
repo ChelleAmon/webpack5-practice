@@ -165,4 +165,11 @@ plugins: [
 
 [JQuery](https://jquery.com/)
 
+
+## ESLint
+* Open Source project that provides a pluggable lint
+* Highly configurable
   
+### Linter
+  * Refers to tools that analyze the source code to flag programming errors, bugs, stylistic errors and suspicious constructs
+  * warns about syntax errors, undeclared variables, etc
