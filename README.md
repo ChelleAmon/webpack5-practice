@@ -165,4 +165,79 @@ plugins: [
 
 [JQuery](https://jquery.com/)
 
+
+## ESLint
+* Open Source project that provides a pluggable lint
+* Highly configurable
+* Static analysis of code
   
+### Linter
+  * Refers to tools that analyze the source code to flag programming errors, bugs, stylistic errors and suspicious constructs
+  * warns about syntax errors, undeclared variables, etc
+
+
+**How to Configure ESLint**
+1. `npm install eslint --save-dev` on the root project
+2. package.json => script => "lint": "eslint ."
+3. create a configuration file named .eslintrc on the root folder to create rules
+4. Inside .eslintrc file, add: 
+      `{
+        "extends": "eslint:recommended"
+      }`
+
+    * This configuration will only apply the rules with checkmarks that we see from [here](https://eslint.org/)
+    * ESLint checks javascript code against ECMAScript5 standards
+    * Since we are using ECMAScript 6, that requires us to configure a couple more options inside ESLint configuration File
+  
+
+      `{
+        "extends": "eslint:recommended",
+        "parserOptions": {
+          "ecmaVersion": 6,
+          "sourceType": "module"
+        },
+        **"env": {
+          "node": true,
+          "browser": true,
+        }**
+      }`
+
+5. ESLint will still complain because we implemented class property which is not part of ecmascript5. We need to install babel-eslint to fix that:
+   
+      * `npm i babel-eslint --save-dev`
+
+      `{
+        "extends": "eslint:recommended",
+        **"parser": "babel-eslint",**
+        "parserOptions": {
+          "ecmaVersion": 6,
+          "sourceType": "module"
+        },
+        "env": {
+          "node": true,
+          "browser": true,
+        }
+      }`
+
+6. We need to configure one more rule that checks for a console.log statements. The rule is called "no-console"
+
+      `{
+        "extends": "eslint:recommended",
+        "parser": "babel-eslint",
+        "parserOptions": {
+          "ecmaVersion": 6,
+          "sourceType": "module"
+        },
+        "env": {
+          "node": true,
+          "browser": true,
+        },
+        **"rules": {
+          "no-console": 0
+        }**
+      }`
+
+
+
+
+
