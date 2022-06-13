@@ -1,3 +1,22 @@
+import NavigationBar from './components/navigation-bar/navigation-bar.js';
+
+
+const navigationItems = [
+    {
+        url: '/hello-world-page',
+        title: 'Hello World Page'
+    },
+    {
+        url: '/dog-page',
+        title: 'Dog Page'
+    }
+];
+
+//create class instance
+const navigationBar = new NavigationBar();
+navigationBar.render(navigationItems);
+
+
 //Get Url
 const url = window.location.pathname // taking part of url and it does not contain the domain and port
 
