@@ -11,7 +11,7 @@ if(url === '/hello-world-page'){
         helloWorldPage.render()
     });
 }else if (url === '/dog-page'){
-    import ('DogPage/DogPage').then(DogPageModule => {
+    import ('DogApp/DogPage').then(DogPageModule => {
         const DogPage = DogPageModule.default;
         const dogPage = new DogPage();
         dogPage.render();
