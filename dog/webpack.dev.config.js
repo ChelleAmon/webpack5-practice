@@ -69,8 +69,12 @@ module.exports = {
         new ModuleFederationPlugin({
             name: "DogApp",
             filename: 'remoteEntry.js',
+    //Dog App serves as both a hosted application for Image Caption and used as a federal module in dashboard
             exposes: {
                 './DogPage': './src/components/dog-page/dog-page.js'
+            }, 
+            remotes: { 
+                ImageCaptionApp: 'ImageCaptionApp@http://localhost:9003/remoteEntry.js'
             }
         })
     ],
