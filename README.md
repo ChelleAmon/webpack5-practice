@@ -155,5 +155,11 @@ plugins: [
                                                   ______/\_____  ___/\_______
                                                   |           |  |           |
                                                   |  MODULE 3 |  |  MODULE 4 |
-                                                  |___________|  |___________|          
+                                                  |___________|  |___________| 
+
+
+## Integrate with JQuery
+* has multiple plugins that can be used once imported on the project
+* it is more concise that Vanilla JS, but it might be confusing to some people
+* Installing Jquery will add another 8KB on the project      
   
